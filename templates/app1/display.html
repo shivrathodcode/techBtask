@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+    {% block title %}
+
+    <title>Cricket</title>
+
+    {% endblock %}
+
+
+{% block content %}
+
+<table border="1" class="table table-striped">
+    <h1>TEAM DATA</h1>
+    <tr>
+        <th>TEAM NAME</th>
+        <th>CAPTAIN</th>
+        <th>CITY</th>
+        <th>TEAM MEMBERS</th>
+        <th>ACTIONS</th>
+    </tr>
+
+    {% for i in obj %}
+    <tr>
+        <td>{{i.team_name}}</td>
+        <td>{{i.captain}}</td>
+        <td>{{i.city}}</td>
+        <td>{{i.t_mem}}</td>
+        <td>
+            <button><a href="{% url 'update_url' i.id %}">UPDATE</a></button>
+            <button><a href="{% url 'delete_url' i.id %}">DELETE</a></button>
+        </td>
+    </tr>
+    {% endfor %}
+
+
+</table>
+
+
+{% endblock %}
